@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" href="/">Главная</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/api/todo">Список дел</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <% if (user) { %>
+        Пользователь: <%= user.name %>
+        <a class="btn btn-secondary" href="/logout" role="button">Выход</a>
+        <% } else{ %>
+        <a class="btn btn-secondary" href="/login" role="button">Войти</a>
+        <a class="btn btn-secondary" href="/signup" role="button">Зарегистрироватся</a>
+        <% }  %>
+    </div>
+</nav>

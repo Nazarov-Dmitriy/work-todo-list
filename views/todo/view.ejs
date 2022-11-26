@@ -1,0 +1,54 @@
+<%- include('../port/layout-start', {title: title}) %>
+<%- include('../port/menu') %>
+<div class="d-flex align-items-center justify-content-between">
+    <h1><%= title %></h1>
+    <div>
+        <p class="visually-hidden" id="name">Автор <%= author %></p>
+        <p class="card-text">Создано <%= todo.createdAt  %></p>
+    </div>
+</div>
+<div class="card mb-3 mt-4">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <% if(todo.image.length > 0) { %>
+            <img src="/images/<%= todo.image%>" class="d-block w-100" alt="/images/<%= todo.image%>"
+                style="object-fit: cover;width: 100%;  height: 400px;">
+            <% }else { %>
+            <div>
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="300px"
+                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap"
+                    preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#868e96"></rect><text x="36%" y="50%" fill="#dee2e6"
+                        dy=".5em" font-size="32px">Фотографии отсутсуют</text>
+                </svg>
+            </div>
+            <% } %>
+        </div>
+
+        <div class="col-md-8">
+            <div class="mb-3 " data-todo="<%=todo._id.toString() %>">
+                <h5 class=" card-title">Описание</h5>
+                <p class="card-text"> <%= todo.description  %></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="d-flex align-items-center justify-content-between mt-3">
+    <div>
+        <p class="card-text">Обновленно <%= todo.updatedAt %></p>
+    </div>
+    <div>
+        <% if(user._id.toString()===todo.userId ) { %>
+        <a class="btn btn-primary" href="/api/todo/remove/<%= todo._id.toString()%>" role="button">Удалить</a>
+        <a class="btn btn-primary" href="/api/todo/update/<%= todo._id.toString()%>" role="button">Редактировать</a>
+        <% }else{ %>
+        <button type="button" class="btn btn-secondary" disabled>Удалить</button>
+        <button type="button" class="btn btn-secondary" disabled>Редактировать</button>
+        <% } %>
+    </div>
+</div>
+<%- include('../port/layout-end') %>

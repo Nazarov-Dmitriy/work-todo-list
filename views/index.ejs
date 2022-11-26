@@ -1,0 +1,17 @@
+<%- include('./port/layout-start') %>
+<%- include('./port/menu') %>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <% if (!user && !error) { %>
+        <p>Здравствуй гость</a></p>
+        <% } else if(error){ %>
+        <p class="text-danger"> <%= error %></p>
+        <% } else { %>
+        <p>Здравствуй, <%= user.name %>. </p>
+        <% } %>
+    </div>
+</div>
+
+
+<%- include('./port/layout-end') %>

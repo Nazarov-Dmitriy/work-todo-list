@@ -1,0 +1,16 @@
+<form method="POST" class="mt-5" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="inputTitle">Заголовок</label>
+        <input type="text" value="<%= todo.title %>" name="title" class="form-control" id="inputTitle">
+    </div>
+
+    <div class="form-group">
+        <label for="inputDesc">Описание</label>
+        <textarea rows="3" name="description" value="<%= todo.description %>" class="form-control"
+            id="inputDesc"><%= todo.description %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="inputImages">Фотографии</label>
+        <input type="file" name="images" class="form-control" id="inputImages" accept="image/*">
+    </div>

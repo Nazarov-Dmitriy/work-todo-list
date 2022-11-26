@@ -1,0 +1,20 @@
+<%- include('../port/layout-start', {title: title}) %>
+<%- include('../port/layout-start', {title: title}) %>
+<%- include('../port/menu') %>
+
+
+<h1><%= title %></h1>
+
+    <div class="row ">
+        <div class="col-sm-6 mx-auto">
+
+            <%- include('form') %>
+            <div class="form-group text-right ">
+                <button type="submit" class="btn btn-primary" formaction='/api/todo/update/<%= todo._id.toString()%>'>Сохранить</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+<%- include('../port/layout-end') %>
